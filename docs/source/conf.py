@@ -30,6 +30,11 @@ extensions = [
 napoleon_google_docstring = True
 napoleon_numpy_docstring = False
 
+# plotly is only used inside a function body (local import) for the sankey
+# plot and isn't installed in the docs env; mock it so autodoc can still
+# import api.py to extract signatures/docstrings.
+autodoc_mock_imports = ["plotly"]
+
 # Notebook already contains its outputs; don't re-execute it when building docs.
 nbsphinx_execute = "never"
 
