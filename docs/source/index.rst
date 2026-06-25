@@ -10,7 +10,6 @@ Rud Gallium MFA documentation
    :maxdepth: 3
    :caption: Contents:
 
-   Rud_Gallium_MFA_3
+   _generated/Rud_Gallium_MFA
    api
-   callgraph
 

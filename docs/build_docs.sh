@@ -5,12 +5,14 @@ cd "$(dirname "$0")/.."
 
 VENV=.venv_MFA/bin
 
-mkdir -p docs/source/_generated docs/source/_static
+mkdir -p docs/source/_generated
 
-"$VENV/jupytext" --to py:percent Rud_Gallium_MFA_3.ipynb \
-    --output docs/source/_generated/Rud_Gallium_MFA_3.py
+"$VENV/jupytext" --to py:percent Rud_Gallium_MFA.ipynb \
+    --output docs/source/_generated/Rud_Gallium_MFA.py
 
-"$VENV/python" docs/build_callgraphs.py
+# Copy the notebook into the docs tree so nbsphinx can render it (referenced
+# by the toctree in index.rst). Outputs are reused, not re-executed.
+cp Rud_Gallium_MFA.ipynb docs/source/_generated/Rud_Gallium_MFA.ipynb
 
 "$VENV/python" docs/extract_api.py
 
